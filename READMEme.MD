@@ -4,6 +4,10 @@ source fenv/bin/activate
 
 pip install flask
 
+$ pip install -r requirements.txt
+
+$ flask run
+
 The sourcecode is copied from :  
 https://github.com/openai/openai-quickstart-python 
 
