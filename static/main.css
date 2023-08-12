@@ -33,7 +33,7 @@ body {
   display: flex;
   align-items: center;
   margin-bottom: 40px;
-  width: 70vw;
+  width: 50vw;
   height: auto;
 }
 h3 {
@@ -67,7 +67,18 @@ input[type="submit"] {
   text-align: center;
   cursor: pointer;
 }
+
 .result {
-  font-weight: bold;
-  margin-top: 40px;
+  /*make result display 70% of screen and left aligned*/
+  max-width: 70%;
+  margin: 0 auto;
+  text-align: left;
+  margin-top: 20px;
+  /*make a nice rectangular around text*/
+  padding: 5px;
+  padding-top: 0px;
+  border: 1px solid #10a37f;
+  border-radius: 4px;
+/* make result preserve the returned format including the newline characters*/
+  white-space: pre-wrap; /* YW notes, the OPEN AI actually returns format info ,this line will preserve it*/
 }

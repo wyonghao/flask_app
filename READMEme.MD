@@ -8,10 +8,13 @@ $ pip install -r requirements.txt
 
 $ flask run
 
-The sourcecode is copied from :  
+The source code is copied from :  
 https://github.com/openai/openai-quickstart-python 
 
 1) I changed the numpy==1.21.3 to numpy>=1.21.3
+
+Test question:
+"How can I learn Rust Programming language?"
 
 *** TODO ***
 

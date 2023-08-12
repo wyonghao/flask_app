@@ -10,12 +10,25 @@
 
 <body>
   <img src="{{ url_for('static', filename='bculogolong.JPG') }}" class="logo" />
-  <h3>Name my pet</h3>
+  <h3>Please answer the question below:</h3>
   <form action="/" method="post">
-    <input type="text" name="animal" placeholder="Enter an animal" required />
-    <input type="submit" value="Generate names" />
+    <textarea name="question" placeholder="Enter your question" rows="5" cols="50" required style="margin-bottom: 10px;"></textarea>    <input type="submit" value="Submit" />
   </form>
   {% if result %}
   <div class="result">{{ result }}</div>
+  <button id="copyButton">Copy to Clipboard</button>
   {% endif %}
+
+<script>
+    document.getElementById('copyButton').addEventListener('click', function() {
+        // Create a temporary textarea to copy text from
+        var tempTextarea = document.createElement('textarea');
+        tempTextarea.value = document.querySelector('.result').innerText;
+        document.body.appendChild(tempTextarea);
+        tempTextarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(tempTextarea);
+        alert('Result copied to clipboard!');
+    });
+</script>
 </body>
