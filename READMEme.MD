@@ -6,6 +6,8 @@ pip install flask
 
 $ pip install -r requirements.txt
 
+export FLASK_ENV=development
+
 $ flask run
 
 The source code is copied from :  
