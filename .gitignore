@@ -3,4 +3,5 @@ __pycache__
 fenv
 fenv/pyvenv.cfg
 .env
+fenv/
 
