@@ -2,7 +2,6 @@ import os
 
 import openai
 from flask import Flask, redirect, render_template, request, url_for, Response
-from functools import wraps
 
 app = Flask(__name__)
 openai.api_key = os.getenv("OPENAI_API_KEY")
@@ -21,7 +20,6 @@ def authenticate():
 
 def requires_auth(f):
     """A decorator to ensure the user is logged in."""
-    @wraps(f)
     def decorated(*args, **kwargs):
         auth = request.authorization
         if not auth or not check_auth(auth.username, auth.password):
@@ -44,7 +42,6 @@ def index():
 
     result = request.args.get("result")
     return render_template("index.html", result=result)
-
 
 def generate_prompt(question):
     return """Answer the following question:

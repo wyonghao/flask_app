@@ -16,7 +16,13 @@ https://github.com/openai/openai-quickstart-python
 Test question:
 "How can I learn Rust Programming language?"
 
+*** NOTES ***
+Flask will automatically load the ENV variables from .env file , this is the standard of Flask >1.0.
+
+
 *** TODO ***
+
+To branch out the repo and do a upgraded version
 
 To update all the packages following the below workflow:
 
