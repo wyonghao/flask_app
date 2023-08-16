@@ -5,3 +5,4 @@ fenv/pyvenv.cfg
 .env
 fenv/
 
+.DS_Store
