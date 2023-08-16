@@ -4,10 +4,10 @@ from flask import Flask, redirect, render_template, request, url_for, Response
 from functools import wraps
 from dotenv import load_dotenv
 
+load_dotenv() # load environment variables from .env file for gunicorn to use
+
 app = Flask(__name__)
 openai.api_key = os.getenv("OPENAI_API_KEY")
-
-load_dotenv() # load environment variables from .env file for gunicorn to use
 
 # load your username and password here
 USERNAME = os.getenv("USERNAME")
