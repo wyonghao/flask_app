@@ -48,30 +48,31 @@ def requires_auth(f):
 def index():
     if request.method == "POST":
         question = request.form["question"]
+        question_type = request.form["question_type"]
+        generated_prompt=generate_prompt(question,question_type)
         response = openai.Completion.create(
             model="text-davinci-003",
-            prompt=generate_prompt(question),
+            prompt=generated_prompt,
             temperature=0.6,
-            max_tokens=250,
+            max_tokens=500,
         )
+        
         # Print statement before the redirect
-        print("About to redirect...")
+        print(f"The prompt is: {generated_prompt}")
 
         result_redirect = redirect(url_for("index", result=response.choices[0].text))
         
         # Print statement after the redirect
-        print("Redirected with result:", response.choices[0].text)
+        # print("Redirected with result:", response.choices[0].text)
         return result_redirect
 
     result = request.args.get("result")
     return render_template("index.html", result=result)
 
-def generate_prompt(question):
-    return """Answer the following question:
-Question: {}
-Answer:""".format(
-        question.capitalize()
-    )
+def generate_prompt(question,question_type):
+    return f"""{question_type}
+Question: {question.capitalize()}
+Answer:"""
 
 if __name__ == "__main__":
     app.run(debug=True)
