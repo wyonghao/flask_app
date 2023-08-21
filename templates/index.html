@@ -12,14 +12,20 @@
   <img src="{{ url_for('static', filename='bculogolong.JPG') }}" class="logo" />
   <h3>Please answer the question below:</h3>
   <form action="/" method="post">
+  
+    <select name="model_type">
+      <option value="completion">Completion Model (Davinci)</option>
+      <option value="chat" selected>Chat Model (GPT4)</option>
+    </select>
+  
+    <br>
         <!-- Dropdown for question type -->
         <label>
           Question Type:
           <select name="question_type">
-            <option value="Answer question">Please select tasks</option>
             <option value="Improve the English Writing of the following: ">Improve English Writing</option>
             <option value="Summarize the following: ">Summarise</option>
-            <option value="Answer question">General Question</option>
+            <option value="Answer question" selected>General Question</option>
           </select>
       </label>
       <br><br> <!-- Add some spacing between dropdown and textarea -->

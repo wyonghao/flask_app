@@ -1,3 +1,7 @@
+TO VIEW this in MD format in VS code:
+
+“Cmd + Shift + V” on Mac or “Ctrl + Shift + V” on Windows  
+
 python3 -m venv fenv
 
 source fenv/bin/activate
