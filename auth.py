@@ -1,6 +1,8 @@
 import os
 from flask import request, Response
 from functools import wraps
+from dotenv import load_dotenv
+load_dotenv() # load environment variables from .env file for gunicorn to use
 
 # load your username and password here
 USERNAME = os.getenv("USERNAME")

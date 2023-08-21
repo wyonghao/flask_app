@@ -8,6 +8,9 @@ load_dotenv() # load environment variables from .env file for gunicorn to use
 
 app = Flask(__name__)
 openai.api_key = os.getenv("OPENAI_API_KEY")
+#if openai.api_key is not None: print loaded key successfully
+if(openai.api_key): print(f"Loaded OPENAI_API_KEY from env: '{openai.api_key}'")
+else: print("Failed to load OPENAI_API_KEY from env")
 
 def generate_prompt(question,question_type):
     return f"""{question_type}
