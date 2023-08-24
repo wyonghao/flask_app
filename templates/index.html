@@ -11,6 +11,13 @@
 
 <body>
   <img src="{{ url_for('static', filename='bculogolong.JPG') }}" class="logo" />
+
+  <div class="tabs">
+    <button class="tablink" onclick="openTab('Tab1', this)">OpenAI</button>
+    <button class="tablink" onclick="openTab('Tab2', this)">Other APP</button>
+  </div>
+
+<div id="Tab1" class="tabcontent">
   <h3>Please answer the question below:</h3>
   <form action="/" method="post">
   
@@ -36,17 +43,13 @@
   <div class="result">{{ result }}</div>
   <button id="copyButton">Copy to Clipboard</button>
   {% endif %}
+</div>
 
-<script>
-    document.getElementById('copyButton').addEventListener('click', function() {
-        // Create a temporary textarea to copy text from
-        var tempTextarea = document.createElement('textarea');
-        tempTextarea.value = document.querySelector('.result').innerText;
-        document.body.appendChild(tempTextarea);
-        tempTextarea.select();
-        document.execCommand('copy');
-        document.body.removeChild(tempTextarea);
-        alert('Result copied to clipboard!');
-    });
-</script>
+<div id="Tab2" class="tabcontent">
+    <!-- Content for the second tab goes here -->
+    TO be added soon!
+</div>
+
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+ 
 </body>

@@ -33,7 +33,7 @@ body {
   display: flex;
   align-items: center;
   margin-bottom: 40px;
-  width: 40vw;
+  width: 35vw;
   height: auto;
 }
 h3 {
@@ -68,6 +68,13 @@ input[type="submit"] {
   cursor: pointer;
 }
 
+form {
+  margin: 0 auto; /* Center the form horizontally */
+  display: flex;
+  flex-direction: column;
+  align-items: left; /* Center the form elements vertically */
+}
+
 .result {
   /*make result display 70% of screen and left aligned*/
   max-width: 70%;
@@ -88,10 +95,41 @@ input[type="submit"] {
   body {
     padding-top: 20px;
   }
-  .logo {
-    width: 80vw;
+  .logo { /* YW define mobile logo size and position */
+    width: 70vw;
   }
   h3 {
     font-size: 24px;
   }
+}
+/* YW add tabs code*/
+.tablink {
+  background-color: #f0f0f0;
+  color: #000;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 17px;
+  width: 50%;
+  white-space: nowrap;
+}
+
+.tablink:hover {
+  background-color: #6699cc;
+  color: #fff;
+}
+
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+
+/* Style for the active tab */
+.active-tab {
+  background-color: #4a90e2;
+  color: #fff; /* Text Color for Active Tab */  
 }
