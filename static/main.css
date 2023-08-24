@@ -82,3 +82,16 @@ input[type="submit"] {
 /* make result preserve the returned format including the newline characters*/
   white-space: pre-wrap; /* YW notes, the OPEN AI actually returns format info ,this line will preserve it*/
 }
+
+/* YW the following code for mobile device, make the logo smaller and the padding-top smaller*/
+@media (max-width: 768px) {
+  body {
+    padding-top: 20px;
+  }
+  .logo {
+    width: 80vw;
+  }
+  h3 {
+    font-size: 24px;
+  }
+}
