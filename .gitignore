@@ -6,3 +6,4 @@ fenv/pyvenv.cfg
 fenv/
 
 .DS_Store
+.vercel
