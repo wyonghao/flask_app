@@ -2,8 +2,8 @@ import os
 import openai
 from flask import Flask, redirect, render_template, request, url_for, Response
 from dotenv import load_dotenv
-from auth import requires_auth
-from crypto_info import crypto_info  # <-- Import here
+from api.auth import requires_auth
+from api.crypto_info import crypto_info  # <-- Import here
 
 load_dotenv() # load environment variables from .env file for gunicorn to use
 
@@ -19,6 +19,9 @@ def generate_prompt(question,question_type):
     return f"""{question_type}
 Question: {question.capitalize()}
 Answer:"""
+
+# Bring in the auth function
+
 
 @app.route("/", methods=("GET", "POST"))
 @requires_auth
