@@ -22,6 +22,12 @@ Then we updated all the packages to the latest
 Test question:
 "How can I learn Rust Programming language?"
 
+*** TODO ***
+try to solve this below problem
+https://dev.meerlabs.com/?result=bababababa
+
+try to load bitcoin page correctly (rendering a page firstly then load to tab)
+
 *** NOTES ***
 Flask will automatically load the ENV variables from .env file , this is the standard of Flask >1.0.
 
