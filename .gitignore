@@ -6,3 +6,7 @@ fenv/pyvenv.cfg
 fenv/
 
 .DS_Store
+# add vercel files
+.vercel
+vercel.json
+```
