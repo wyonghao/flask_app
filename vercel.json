@@ -1,7 +1,6 @@
 {
   "functions": {
-    "api/**/*.py": {
-    }
+    "api/**/*.py": {}
   },
   "rewrites": [
     { "source": "/(.*)", "destination": "/api/app.py" }
