@@ -1,7 +1,7 @@
 {
   "functions": {
     "api/**/*.py": {
-      "runtime": "python3.9@0.3.0"
+      "runtime": "python@3.9"
     }
   },
   "rewrites": [
