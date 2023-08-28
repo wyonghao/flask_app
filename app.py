@@ -1,6 +1,6 @@
 import os
 import openai
-from flask import Flask, redirect, render_template, request, url_for, Response
+from flask import Flask, render_template, request, url_for, Response
 from dotenv import load_dotenv
 from auth import requires_auth
 from crypto_info import crypto_info  # <-- Import here
@@ -20,7 +20,7 @@ def generate_prompt(question,question_type):
 Question: {question.capitalize()}
 Answer:"""
 
-@app.route("/", methods=("GET", "POST"))
+@app.route("/", methods=("POST", "GET"))
 @requires_auth
 def index():
     if request.method == "POST":
@@ -53,10 +53,10 @@ def index():
         
         # Print statement before the redirect
         print(f"The prompt is: {generated_prompt}")
-
-        return redirect(url_for("index", result=result_text))
-    result = request.args.get("result")
-    return render_template("index.html", result=result)
+        return render_template("index.html", result=result_text)
+    
+    # result = request.args.get("result")
+    return render_template("index.html", result=None) # <-- Change here to not pass result to URL
 
 @app.route("/crypto_info/<coin_id>", methods=["GET"])
 def get_crypto_info(coin_id):
