@@ -7,7 +7,8 @@ my_project/
 │   └── xxx.py
 ├── vercel.json
 └── requirements.txt
-
+https://vercel.com/new/git/external?repository-url=
+https://github.com/vercel/examples/tree/main/python/flask
 
 This is an example pet name generator app used in the OpenAI API [quickstart tutorial](https://beta.openai.com/docs/quickstart). It uses the [Flask](https://flask.palletsprojects.com/en/2.0.x/) web framework. Check out the tutorial or follow the instructions below to get set up.
 
