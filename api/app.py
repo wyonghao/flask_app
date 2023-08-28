@@ -3,14 +3,17 @@ import openai
 from flask import Flask, redirect, render_template, request, url_for, Response
 from dotenv import load_dotenv
 from auth import requires_auth
+from crypto_info import crypto_info  # <-- Import here
 
 load_dotenv() # load environment variables from .env file for gunicorn to use
 
 app = Flask(__name__)
 openai.api_key = os.getenv("OPENAI_API_KEY")
 #if openai.api_key is not None: print loaded key successfully
-if(openai.api_key): print(f"Loaded OPENAI_API_KEY from env: '{openai.api_key}'")
-else: print("Failed to load OPENAI_API_KEY from env")
+if(openai.api_key): 
+    print(f"Loaded OPENAI_API_KEY from env: '{openai.api_key}'")
+else: 
+    print("Failed to load OPENAI_API_KEY from env")
 
 def generate_prompt(question,question_type):
     return f"""{question_type}
@@ -55,7 +58,9 @@ def index():
     result = request.args.get("result")
     return render_template("index.html", result=result)
 
-
+@app.route("/crypto_info/<coin_id>", methods=["GET"])
+def get_crypto_info(coin_id):
+    return crypto_info(coin_id)  # <-- New route
 
 if __name__ == "__main__":
     app.run(debug=True)
