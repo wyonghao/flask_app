@@ -62,5 +62,9 @@ def index():
 def get_crypto_info(coin_id):
     return crypto_info(coin_id)  # <-- New route
 
+@app.route('/forensic')
+def forensic():
+    return render_template('forensic.html')
+
 if __name__ == "__main__":
     app.run(debug=True)

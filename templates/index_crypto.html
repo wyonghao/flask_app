@@ -14,14 +14,12 @@
 
   <div class="tabs">
     <button class="tablink" onclick="openTab('Tab1', this)">OpenAI</button>
-    <button class="tablink" onclick="openTab('Tab2', this)">Crypto Info</button>
-    <button id="forensic_tab" class="tablink" onclick="openTab('Tab3', this); loadForensicContent()">Digital Forensic Examples</button>
-
+    <button class="tablink" onclick="openTab('Tab2', this)">Other APP</button>
   </div>
 
 <div id="Tab1" class="tabcontent">
   <!--make the h3 heading centered-->
-  <h3 style="text-align: center;">Please type your question below:</h3>
+  <h3 style="text-align: center;">Please answer the question below:</h3>
   <form action="/" method="post">
   
     <select name="model_type">
@@ -51,23 +49,49 @@
 <div id="Tab2" class="tabcontent">
   <!-- Content for the second tab goes here -->
   To be updated soon!
-  <table id="cryptoTable" border="1">
-    <tr>
-      <th>Coin</th>
-      <th>Current Price (USD)</th>
-      <th>Market Cap (USD)</th>
-    </tr>
-    <!-- Data will be inserted here -->
-  </table>
-</div>
-
-<div id="Tab3" class="tabcontent">
-  <div id="forensic_content"> </div>
-</div>
-
+  <div id="Tab2" class="tabcontent">
+    <table id="cryptoTable" border="1">
+      <tr>
+        <th>Coin</th>
+        <th>Current Price (USD)</th>
+        <th>Market Cap (USD)</th>
+      </tr>
+      <!-- Data will be inserted here -->
+    </table>
+  </div>
+  
+  <script>
+  function loadCryptoInfo(coin_id) {
+      console.log(`Fetching info for ${coin_id}...`);  // Debugging line
+      fetch(`/crypto_info/${coin_id}`)
+          .then(response => {
+              console.log(`Received response for ${coin_id}`, response);  // Debugging line
+              return response.json();
+          })
+          .then(data => {
+              console.log(`Received data for ${coin_id}`, data);  // Debugging line
+              var price = data[coin_id]['usd'];
+              var marketCap = data[coin_id]['usd_market_cap'];
+              var table = document.getElementById('cryptoTable');
+              var row = table.insertRow(-1);
+              var cell1 = row.insertCell(0);
+              var cell2 = row.insertCell(1);
+              var cell3 = row.insertCell(2);
+              cell1.innerHTML = coin_id;
+              cell2.innerHTML = price;
+              cell3.innerHTML = marketCap;
+          })
+          .catch(error => {
+              console.error(`Error fetching data for ${coin_id}:`, error);  // Debugging line
+          });
+    }
+ 
+    // Load Bitcoin and Ethereum info when the page loads or tab is clicked
+    loadCryptoInfo('bitcoin');
+    loadCryptoInfo('ethereum');
+  </script>
 </div>
 
   <script src="{{ url_for('static', filename='js/main.js') }}"></script>
  
 </body>
-</html>
