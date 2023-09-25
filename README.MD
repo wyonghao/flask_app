@@ -1,4 +1,4 @@
-#Python Flask example app
+# Python Flask example app
 
 This project is inspired by and initially based on the OpenAI API [quickstart tutorial](https://beta.openai.com/docs/quickstart). However, it has undergone significant changes and is now massively different. It uses the [Flask](https://flask.palletsprojects.com/en/2.0.x/) web framework. If you're interested in learning more about the OpenAI API, the original tutorial and links are still useful resources.
 
