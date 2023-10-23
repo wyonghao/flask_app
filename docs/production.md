@@ -6,7 +6,7 @@ For the production server
     load_dotenv()
 ```
 
-Draft notes below:
+After reboot machine, do this Draft notes below:
 
 tmux
 source venv/bin/activate
@@ -14,8 +14,12 @@ flask run --host=0.0.0.0 (to serve on the internet need to add host)
 
 same for gunicorn
 gunicorn --workers=2 app:app shall be like below
-gunicorn --workers=2 app:app -b 0.0.0.0:8000
 
+!!! gunicorn --workers=2 app:app -b 0.0.0.0:8000
+
+YW!!
+check this file : /etc/nginx/sites-available/dev.meerlabs.com
+that file already pass reverse proxy to proxy_pass http://0.0.0.0:8000; 
 
 Make two workers
 
